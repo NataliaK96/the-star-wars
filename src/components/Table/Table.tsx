@@ -19,7 +19,7 @@ const columns = [
   {
     title: 'API',
     dataIndex: 'api',
-    render: (t: string, d: TTableData, i: number) => <p>{d.api}</p>,
+    render: (t: string, d: TTableData, i: number) => <a href={d.api} target='_blank'>{d.api}</a>,
   },
   {
     title: '',
