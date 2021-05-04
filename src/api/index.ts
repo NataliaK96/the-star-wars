@@ -1,0 +1,1 @@
+export {getSections} from './sections-api'
