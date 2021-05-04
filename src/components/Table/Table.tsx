@@ -1,5 +1,6 @@
 import React from 'react';
 import { Table as TableBase } from 'antd';
+import { NavLink } from 'react-router-dom';
 import { TTableData } from 'types';
 type Props = {
   data: TTableData[]
@@ -19,12 +20,12 @@ const columns = [
   {
     title: 'API',
     dataIndex: 'api',
-    render: (t: string, d: TTableData, i: number) => <a href={d.api} target='_blank'>{d.api}</a>,
+    render: (t: string, d: TTableData, i: number) => <a href={d.api} target='_blank' rel="noreferrer">{d.api}</a>,
   },
   {
     title: '',
     dataIndex: 'open',
-    render: (t: string, d: TTableData, i: number) => <a href='#'>open</a>,
+    render: (t: string, d: TTableData, i: number) => <NavLink to={'/' + d.title}>open</NavLink>,
   },
 ];
 
