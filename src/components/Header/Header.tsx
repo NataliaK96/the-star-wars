@@ -1,8 +1,11 @@
 import React from 'react';
-import {HeaderMain} from './Header.styles'
+import {HeaderMain, Logo} from './Header.styles'
+import starWarsLogo from 'assets/images/Star_Wars_Logo.png'
 
 export const Header = () => {
   return (
-      <HeaderMain></HeaderMain>
+      <HeaderMain>
+          <Logo src={starWarsLogo}/>
+      </HeaderMain>
   )
 };

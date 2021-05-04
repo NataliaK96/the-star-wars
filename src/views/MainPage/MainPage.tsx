@@ -2,6 +2,8 @@ import React, { useCallback, useEffect } from 'react';
 import { Table } from 'components/Table';
 import store from 'store';
 import { observer } from 'mobx-react';
+import { Main } from './Main.styles';
+import { Footer } from 'components/Footer';
 
 const MainPage = () => {
   const { sections, fetchSections } = store;
@@ -15,6 +17,11 @@ const MainPage = () => {
     init();
   }, [init]);
   if (!data) return null;
-  return <Table data={data} />;
+  return (
+    <Main>
+      <Table data={data} />
+      <Footer/>
+    </Main>
+  );
 };
 export default observer(MainPage);

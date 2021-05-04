@@ -10,7 +10,6 @@ import SpeciesPage from './../views/SpeciesPage';
 import StarshipPage from './../views/StarshipsPage';
 import VehiclesPage from './../views/VehiclesPage';
 import { Header } from './../components/Header';
-import { Footer } from 'components/Footer';
 
 function App() {
   return (
@@ -23,7 +22,6 @@ function App() {
       <Route path="/species" render={() => <SpeciesPage />} />
       <Route path="/starships" render={() => <StarshipPage />} />
       <Route path="/vehicles" render={() => <VehiclesPage />} />
-      <Footer/>
     </Main>
     
   );

@@ -1,11 +1,17 @@
 import styled from 'styled-components';
+import {Colors} from 'constants/colors'
 
 export const HeaderMain = styled.div`
-  height: 64px;
-  color: #fff;
-  background-color: #f3cd01;
-  box-shadow: 0 3px 4px -1px rgba(0, 0, 0, 0.5);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  height: 16vh;
+  padding: 12px;
+  border-bottom: 1px solid ${Colors.yellow};
+  margin: 0 5%;
+
+`;
+export const Logo = styled.img`
+  height: 100%;
+  width: auto;
 `;
