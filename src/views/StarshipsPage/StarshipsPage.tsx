@@ -1,16 +1,16 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main } from './Vehicles.styles';
+import { Main } from './Starships.styles';
 import { Footer } from 'components/Footer';
 import { Card } from 'components/Card'
 
-const VehiclesPage = () => {
-  const { vehicles, fetchVehicles } = store;
-  const data = vehicles;
+const StarshipsPage = () => {
+  const { starships, fetchStarships } = store;
+  const data = starships;
   const init = useCallback(async () => {
-    fetchVehicles();
-  }, [fetchVehicles]);
+    fetchStarships();
+  }, [fetchStarships]);
   useEffect(() => {
     init();
   }, [init]);
@@ -25,4 +25,4 @@ const VehiclesPage = () => {
   );
 };
 
-export default observer(VehiclesPage);
+export default observer(StarshipsPage);

@@ -1,11 +1,21 @@
 import { flow, types } from 'mobx-state-tree';
-import { MSections, MFilm, MMan, MPlanet, MSpecies } from './../models';
+import {
+  MSections,
+  MFilm,
+  MMan,
+  MPlanet,
+  MSpecies,
+  MStarship,
+  MVehicle,
+} from './../models';
 import {
   getSections,
   getFilms,
   getPeople,
   getPlanets,
   getSpecies,
+  getStarships,
+  getVehicles,
 } from './../api';
 
 const Store = types
@@ -15,6 +25,8 @@ const Store = types
     people: types.array(MMan),
     planets: types.array(MPlanet),
     species: types.array(MSpecies),
+    starships: types.array(MStarship),
+    vehicles: types.array(MVehicle),
   })
   .actions((self) => ({
     fetchSections: flow(function* () {
@@ -57,6 +69,24 @@ const Store = types
         const species = yield getSpecies();
         console.log('species:', species);
         self.species = species;
+      } catch (error) {
+        console.error(error);
+      }
+    }),
+    fetchStarships: flow(function* () {
+      try {
+        const starships = yield getStarships();
+        console.log('starships:', starships);
+        self.starships = starships;
+      } catch (error) {
+        console.error(error);
+      }
+    }),
+    fetchVehicles: flow(function* () {
+      try {
+        const vehicles = yield getVehicles();
+        console.log('vehicles:', vehicles);
+        self.vehicles = vehicles;
       } catch (error) {
         console.error(error);
       }

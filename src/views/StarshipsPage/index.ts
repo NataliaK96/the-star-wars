@@ -1,2 +1,2 @@
-import StarshipPage from './StarshipPage';
-export default StarshipPage
+import StarshipsPage from './StarshipsPage';
+export default StarshipsPage
