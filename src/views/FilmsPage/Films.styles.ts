@@ -7,6 +7,7 @@ export const Main = styled.div`
   flex: auto;
   justify-content: center;
   flex-direction: column;
+  color: ${Colors.white};
   background-image: url(${backgroundMain});
   background-color: ${Colors.black};
 `;
