@@ -3,11 +3,16 @@ import { Colors } from 'constants/colors';
 import backgroundStarship from 'assets/images/starship.jpg'
 
 export const Main = styled.div`
+  color: ${Colors.white};
+  background-image: url(${backgroundStarship});
+  background-color: ${Colors.black};
+  width: 100%;
+`;
+
+export const WrapperStarship = styled.div`
   display: flex;
   flex: auto;
   justify-content: center;
   flex-direction: column;
-  color: ${Colors.white};
-  background-image: url(${backgroundStarship});
-  background-color: ${Colors.black};
+  margin: 0 20%;
 `;

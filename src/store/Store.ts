@@ -118,18 +118,18 @@ const Store = types
     }),
     fetchStarships: flow(function* () {
       try {
-        const starships = yield getStarships();
-        console.log('starships:', starships);
-        self.starships = starships;
+        const { count, next, previous, results } = yield getStarships();
+        self.starships.context = createContext(count, next, previous);
+        self.starships.data = results;
       } catch (error) {
         console.error(error);
       }
     }),
     fetchVehicles: flow(function* () {
       try {
-        const vehicles = yield getVehicles();
-        console.log('vehicles:', vehicles);
-        self.vehicles = vehicles;
+        const { count, next, previous, results } = yield getVehicles();
+        self.vehicles.context = createContext(count, next, previous);
+        self.vehicles.data = results;
       } catch (error) {
         console.error(error);
       }

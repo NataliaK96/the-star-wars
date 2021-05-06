@@ -6,7 +6,7 @@ export const Row = styled.div`
 `;
 export const InfoTitle = styled.div`
   display: flex;
-  min-width: 200px;
+  min-width: 280px;
   font-weight: 500;
   font-size: 18px;
 `;
