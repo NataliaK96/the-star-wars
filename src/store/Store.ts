@@ -94,7 +94,6 @@ const Store = types
           return { ...man, id };
         });
         self.people.data = people;
-        console.log(self.people.data);
       } catch (error) {
         console.error(error);
       }
@@ -110,9 +109,9 @@ const Store = types
     }),
     fetchSpecies: flow(function* () {
       try {
-        const species = yield getSpecies();
-        console.log('species:', species);
-        self.species = species;
+        const { count, next, previous, results } = yield getSpecies();
+        self.species.context = createContext(count, next, previous);
+        self.species.data = results;
       } catch (error) {
         console.error(error);
       }

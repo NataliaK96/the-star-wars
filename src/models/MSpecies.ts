@@ -10,7 +10,7 @@ export const MSpecies = types.model({
   hair_colors : types.string,
   skin_colors : types.string,
   language : types.string,
-  homeworld : types.string,
+  homeworld : types.maybeNull(types.string),
   people : types.array(types.string),
   films : types.array(types.string),
   url : types.string,
