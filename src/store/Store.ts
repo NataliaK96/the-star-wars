@@ -86,9 +86,18 @@ const Store = types
     }),
     fetchPeople: flow(function* () {
       try {
-        const people = yield getPeople();
-        console.log('people:', people);
-        self.people = people;
+        const { count, next, previous, results } = yield getPeople();
+        self.people.context = createContext(count, next, previous);
+        const people = results.map((man: any) => {
+          const splitedUrl = man.url?.split('/');
+          console.log('splitedUrl', splitedUrl);
+          const id = Number(splitedUrl[splitedUrl.length - 2]);
+          console.log('id', id);
+
+          return { ...man, id };
+        });
+        self.people.data = people;
+        console.log(self.people.data);
       } catch (error) {
         console.error(error);
       }

@@ -11,6 +11,7 @@ export const Wrapper = styled.div`
     border-bottom: none;
   }
 `;
+
 export const Title = styled.div`
   display: flex;
   text-transform: uppercase;

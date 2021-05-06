@@ -1,5 +1,5 @@
 import { Instance } from 'mobx-state-tree';
-import { MFilm, MContext } from 'models';
+import { MFilm, MContext, MMan } from 'models';
 
 export type TTableData = {
   title: string;
@@ -8,8 +8,8 @@ export type TTableData = {
 };
 
 export type TContext = Instance<typeof MContext>;
-
 export type TFilm = Instance<typeof MFilm>;
+export type TMan = Instance<typeof MMan>;
 
 export type TCardData = {
   title: JSX.Element | string;

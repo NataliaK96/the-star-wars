@@ -2,7 +2,7 @@ import { types } from 'mobx-state-tree';
 
 export const MMan = types.model({
   name: types.string,
-  birth_year: types.number,
+  birth_year: types.string,
   eye_color: types.string,
   gender: types.string,
   hair_color: types.string,
@@ -17,4 +17,5 @@ export const MMan = types.model({
   url: types.string,
   created: types.string,
   edited: types.string,
+  id: types.maybeNull(types.number),
 });
