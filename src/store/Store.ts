@@ -7,7 +7,8 @@ import {
   MSpecies,
   MStarship,
   MVehicle,
-} from './../models';
+  MContext,
+} from 'models';
 import {
   getSections,
   getFilms,
@@ -16,17 +17,54 @@ import {
   getSpecies,
   getStarships,
   getVehicles,
-} from './../api';
+} from 'api';
+import { createContext } from 'utils';
 
 const Store = types
   .model({
     sections: types.maybeNull(MSections),
-    films: types.array(MFilm),
-    people: types.array(MMan),
-    planets: types.array(MPlanet),
-    species: types.array(MSpecies),
-    starships: types.array(MStarship),
-    vehicles: types.array(MVehicle),
+    films: types.optional(
+      types.model({
+        data: types.array(MFilm),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
+    people: types.optional(
+      types.model({
+        data: types.array(MMan),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
+    planets: types.optional(
+      types.model({
+        data: types.array(MPlanet),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
+    species: types.optional(
+      types.model({
+        data: types.array(MSpecies),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
+    starships: types.optional(
+      types.model({
+        data: types.array(MStarship),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
+    vehicles: types.optional(
+      types.model({
+        data: types.array(MVehicle),
+        context: types.optional(MContext, {}),
+      }),
+      {}
+    ),
   })
   .actions((self) => ({
     fetchSections: flow(function* () {
@@ -39,9 +77,9 @@ const Store = types
     }),
     fetchFilms: flow(function* () {
       try {
-        const films = yield getFilms();
-        console.log('films:', films);
-        self.films = films;
+        const { count, next, previous, results } = yield getFilms();
+        self.films.context = createContext(count, next, previous);
+        self.films.data = results;
       } catch (error) {
         console.error(error);
       }

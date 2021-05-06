@@ -18,7 +18,7 @@ const StarshipsPage = () => {
 
   return (
     <Main>
-      <Card>
+      <Card title=''>
     </Card>
       <Footer />
     </Main>

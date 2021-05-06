@@ -6,7 +6,7 @@ export const MFilm = types.model({
   opening_crawl: types.string,
   director: types.string,
   producer: types.string,
-  release_date: types.Date,
+  release_date: types.string,
   species: types.array(types.string),
   starships: types.array(types.string),
   vehicles: types.array(types.string),

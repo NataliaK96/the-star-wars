@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import './App.css';
-import {Main} from './App.styles'
+import { Main, Wrapper } from './App.styles';
 import MainPage from '../views/MainPage/MainPage';
 import FilmsPage from './../views/FilmsPage';
 import PeoplePage from './../views/PeoplePage';
@@ -13,17 +12,18 @@ import { Header } from './../components/Header';
 
 function App() {
   return (
-    <Main>
-      <Header/>
-      <Route path="/" exact render={() => <MainPage />} />
-      <Route path="/films" render={() => <FilmsPage />} />
-      <Route path="/people" render={() => <PeoplePage />} />
-      <Route path="/planets" render={() => <PlanetsPage />} />
-      <Route path="/species" render={() => <SpeciesPage />} />
-      <Route path="/starships" render={() => <StarshipsPage />} />
-      <Route path="/vehicles" render={() => <VehiclesPage />} />
-    </Main>
-    
+    <Wrapper>
+      <Header />
+      <Main>
+        <Route path="/" exact render={() => <MainPage />} />
+        <Route path="/films" render={() => <FilmsPage />} />
+        <Route path="/people" render={() => <PeoplePage />} />
+        <Route path="/planets" render={() => <PlanetsPage />} />
+        <Route path="/species" render={() => <SpeciesPage />} />
+        <Route path="/starships" render={() => <StarshipsPage />} />
+        <Route path="/vehicles" render={() => <VehiclesPage />} />
+      </Main>
+    </Wrapper>
   );
 }
 

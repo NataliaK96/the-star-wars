@@ -18,7 +18,7 @@ const VehiclesPage = () => {
 
   return (
     <Main>
-      <Card>
+      <Card title=''>
     </Card>
       <Footer />
     </Main>

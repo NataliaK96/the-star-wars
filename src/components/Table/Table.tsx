@@ -12,16 +12,19 @@ const columns = [
   {
     title: '№',
     dataIndex: 'number',
+    key: 1,
     render: (t: string, d: any, i: number) => <p>{i + 1}</p>,
   },
   {
     title: 'Название',
     dataIndex: 'name',
+    key: 2,
     render: (t: string, d: any, i: number) => <p>{d.title}</p>,
   },
   {
     title: 'API',
     dataIndex: 'api',
+    key: 3,
     render: (t: string, d: any, i: number) => (
       <a href={d.api} target="_blank" rel="noreferrer">
         {d.api}
@@ -31,6 +34,7 @@ const columns = [
   {
     title: '',
     dataIndex: 'open',
+    key: 4,
     render: (t: string, d: any, i: number) => (
       <NavLink to={'/' + d.title}>open</NavLink>
     ),
@@ -40,7 +44,10 @@ const columns = [
 export const Table: React.FC<Props> = ({ data }) => {
   return (
     <TableBlock>
-      <TableStyled dataSource={data} columns={columns} />
+      <TableStyled
+        dataSource={data}
+        columns={columns}
+      />
     </TableBlock>
   );
 };
