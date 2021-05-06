@@ -1,5 +1,4 @@
 import React from 'react';
-import { TCardData } from 'types';
 import { InfoTitle, InfoValue, Row } from './CardListInfo.styles';
 
 type Props = {

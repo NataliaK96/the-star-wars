@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/colors';
-import backgroundStarship from 'assets/images/starship.png'
+import backgroundStarship from 'assets/images/starship.jpg'
 
 export const Main = styled.div`
   display: flex;

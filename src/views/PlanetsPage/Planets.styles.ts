@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/colors';
-import backgroundPlanets from 'assets/images/planets.png'
+import backgroundPlanets from 'assets/images/planets.jpg'
 
 export const Main = styled.div`
   display: flex;

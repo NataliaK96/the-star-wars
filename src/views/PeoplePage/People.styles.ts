@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/colors';
-import backgroundPeople from 'assets/images/people.png'
+import backgroundPeople from 'assets/images/people.jpg'
 
 export const Main = styled.div`
   display: flex;
@@ -10,4 +10,6 @@ export const Main = styled.div`
   color: ${Colors.white};
   background-image: url(${backgroundPeople});
   background-color: ${Colors.black};
+  background-size: cover;
 `;
+

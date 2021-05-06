@@ -9,4 +9,5 @@ export const Main = styled.div`
   flex-direction: column;
   background-image: url(${backgroundMain});
   background-color: ${Colors.black};
+  background-size: cover;
 `;

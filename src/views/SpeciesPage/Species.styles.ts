@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/colors';
-import backgroundSpecies from 'assets/images/species.png'
+import backgroundSpecies from 'assets/images/species.jpg'
 
 export const Main = styled.div`
   display: flex;

@@ -8,3 +8,4 @@ export const Main = styled.div`
   flex-direction: column;
   color: ${Colors.white};
 `;
+
