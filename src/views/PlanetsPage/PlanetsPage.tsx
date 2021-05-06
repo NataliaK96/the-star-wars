@@ -1,25 +1,60 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main } from './Planets.styles';
+import { Main, WrapperPlanets } from './Planets.styles';
 import { Footer } from 'components/Footer';
-import { Card } from 'components/Card'
+import { Card } from 'components/Card';
+import { TPlanet } from 'types';
+import { CardListInfo } from 'components/CardListInfo';
 
 const PlanetsPage = () => {
   const { planets, fetchPlanets } = store;
-  const data = planets;
+  const { data, context } = planets;
+
   const init = useCallback(async () => {
-    fetchPlanets();
+    await fetchPlanets();
   }, [fetchPlanets]);
   useEffect(() => {
     init();
   }, [init]);
+
   if (!data) return null;
 
+  const CardItem = data.map((planet: TPlanet) => {
+    const {
+      name,
+      diameter,
+      rotation_period,
+      orbital_period,
+      gravity,
+      population,
+      climate,
+      terrain,
+      surface_water,
+      created,
+      edited,
+    } = planet;
+    const info = [
+      { title: 'Diameter', value: diameter },
+      { title: 'Rotation period ', value: rotation_period },
+      { title: 'Orbital period', value: orbital_period },
+      { title: 'Gravity', value: gravity },
+      { title: 'Population', value: population },
+      { title: 'Climate', value: climate },
+      { title: 'Terrain', value: terrain },
+      { title: 'Surface Water', value: surface_water },
+      { title: 'Created', value: created },
+      { title: 'Edited', value: edited },
+    ];
+    return (
+      <Card key={name} title={name}>
+        <CardListInfo data={info} />
+      </Card>
+    );
+  });
   return (
     <Main>
-      <Card title=''>
-    </Card>
+      <WrapperPlanets>{CardItem}</WrapperPlanets>
       <Footer />
     </Main>
   );

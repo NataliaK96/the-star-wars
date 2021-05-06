@@ -90,10 +90,7 @@ const Store = types
         self.people.context = createContext(count, next, previous);
         const people = results.map((man: any) => {
           const splitedUrl = man.url?.split('/');
-          console.log('splitedUrl', splitedUrl);
           const id = Number(splitedUrl[splitedUrl.length - 2]);
-          console.log('id', id);
-
           return { ...man, id };
         });
         self.people.data = people;
@@ -104,9 +101,9 @@ const Store = types
     }),
     fetchPlanets: flow(function* () {
       try {
-        const planets = yield getPlanets();
-        console.log('planets:', planets);
-        self.planets = planets;
+        const { count, next, previous, results } = yield getPlanets();
+        self.planets.context = createContext(count, next, previous);
+        self.planets.data = results;
       } catch (error) {
         console.error(error);
       }
