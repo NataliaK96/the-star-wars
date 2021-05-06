@@ -7,5 +7,6 @@ export const Main = styled.div`
   justify-content: center;
   flex-direction: column;
   color: ${Colors.white};
+  margin: 0 20%
 `;
 
