@@ -3,9 +3,11 @@ import store from 'store';
 import { observer } from 'mobx-react';
 import { Main, WrapperVehicles } from './Vehicles.styles';
 import { Footer } from 'components/Footer';
-import { Card } from 'components/Card'
+import { Card } from 'components/Card';
 import { TVehicle } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const VehiclesPage = () => {
   const { vehicles, fetchVehicles } = store;
@@ -19,21 +21,21 @@ const VehiclesPage = () => {
   }, [init]);
 
   if (!data) return null;
-const CardItem = data.map((vehicle: TVehicle) => {
+  const CardItem = data.map((vehicle: TVehicle) => {
     const {
       name,
-  model,
-  vehicle_class ,
-  manufacturer,
-  length,
-  cost_in_credits,
-  crew,
-  passengers,
-  max_atmosphering_speed,
-  cargo_capacity,
-  consumables,
-  created,
-  edited,
+      model,
+      vehicle_class,
+      manufacturer,
+      length,
+      cost_in_credits,
+      crew,
+      passengers,
+      max_atmosphering_speed,
+      cargo_capacity,
+      consumables,
+      created,
+      edited,
     } = vehicle;
     const info = [
       { title: 'Model', value: model },
@@ -57,6 +59,9 @@ const CardItem = data.map((vehicle: TVehicle) => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperVehicles>{CardItem}</WrapperVehicles>
       <Footer />
     </Main>

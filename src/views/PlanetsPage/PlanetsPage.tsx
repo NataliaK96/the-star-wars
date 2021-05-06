@@ -6,6 +6,8 @@ import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TPlanet } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const PlanetsPage = () => {
   const { planets, fetchPlanets } = store;
@@ -54,6 +56,9 @@ const PlanetsPage = () => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperPlanets>{CardItem}</WrapperPlanets>
       <Footer />
     </Main>

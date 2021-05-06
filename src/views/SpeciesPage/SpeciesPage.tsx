@@ -6,6 +6,8 @@ import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TSpecies } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const SpeciesPage = () => {
   const { species, fetchSpecies } = store;
@@ -54,6 +56,9 @@ const SpeciesPage = () => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperSpecies>{CardItem}</WrapperSpecies>
       <Footer />
     </Main>

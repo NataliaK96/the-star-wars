@@ -6,6 +6,8 @@ import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TMan } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const PeoplePage = () => {
   const { people, fetchPeople } = store;
@@ -50,6 +52,9 @@ const PeoplePage = () => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperPeople>{CardItem}</WrapperPeople>
       <Footer />
     </Main>

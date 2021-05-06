@@ -6,6 +6,8 @@ import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TStarship } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const StarshipsPage = () => {
   const { starships, fetchStarships } = store;
@@ -61,6 +63,9 @@ const StarshipsPage = () => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperStarship>{CardItem}</WrapperStarship>
       <Footer />
     </Main>

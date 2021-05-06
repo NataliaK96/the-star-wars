@@ -6,6 +6,8 @@ import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TFilm } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
 
 const FilmsPage = () => {
   const { films, fetchFilms } = store;
@@ -44,6 +46,9 @@ const FilmsPage = () => {
   });
   return (
     <Main>
+      <NavLink to="/">
+        <GoBack />
+      </NavLink>
       <WrapperFilms>{CardItem}</WrapperFilms>
       <Footer />
     </Main>

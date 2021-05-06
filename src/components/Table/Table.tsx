@@ -16,7 +16,7 @@ const columns = [
     render: (t: string, d: any, i: number) => <p>{i + 1}</p>,
   },
   {
-    title: 'Название',
+    title: 'Name',
     dataIndex: 'name',
     key: 2,
     render: (t: string, d: any, i: number) => <p>{d.title}</p>,
