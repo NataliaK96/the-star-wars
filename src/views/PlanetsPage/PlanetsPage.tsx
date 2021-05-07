@@ -14,6 +14,7 @@ import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
 import { Filter } from 'components/Filter';
+import { dateFormatting } from 'utils';
 
 const PlanetsPage = () => {
   const { planets, fetchPlanets } = store;
@@ -51,8 +52,8 @@ const PlanetsPage = () => {
       { title: 'Climate', value: climate },
       { title: 'Terrain', value: terrain },
       { title: 'Surface Water', value: surface_water },
-      { title: 'Created', value: created },
-      { title: 'Edited', value: edited },
+      { title: 'Created', value: dateFormatting(created)},
+      { title: 'Edited', value: dateFormatting(edited)},
     ];
     return (
       <Card key={name} title={name}>

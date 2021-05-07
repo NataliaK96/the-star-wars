@@ -8,6 +8,7 @@ import { TSpecies } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
+import { dateFormatting } from 'utils';
 
 const SpeciesPage = () => {
   const { species, fetchSpecies } = store;
@@ -45,8 +46,8 @@ const SpeciesPage = () => {
       { title: 'Hair colors', value: hair_colors },
       { title: 'Skin colors', value: skin_colors },
       { title: 'Language', value: language },
-      { title: 'Created', value: created },
-      { title: 'Edited', value: edited },
+      { title: 'Created', value: dateFormatting(created) },
+      { title: 'Edited', value: dateFormatting(edited) },
     ];
     return (
       <Card key={name} title={name}>

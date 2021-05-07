@@ -9,14 +9,14 @@ const { SubMenu } = Menu;
 const menu = (
   <Menu>
     <SubMenu title="Climate">
-      <Menu.Item>arid</Menu.Item>
-      <Menu.Item>temperate</Menu.Item>
-      <Menu.Item>tropical</Menu.Item>
+      <Menu.Item>Arid</Menu.Item>
+      <Menu.Item>Temperate</Menu.Item>
+      <Menu.Item>Tropical</Menu.Item>
     </SubMenu>
     <SubMenu title="Terrain">
-      <Menu.Item>jungle</Menu.Item>
-      <Menu.Item>rainforests</Menu.Item>
-      <Menu.Item>grasslands</Menu.Item>
+      <Menu.Item>Jungle</Menu.Item>
+      <Menu.Item>Rainforests</Menu.Item>
+      <Menu.Item>Grasslands</Menu.Item>
     </SubMenu>
   </Menu>
 );

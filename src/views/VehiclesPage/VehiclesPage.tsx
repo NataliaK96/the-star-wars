@@ -8,6 +8,7 @@ import { TVehicle } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
+import { dateFormatting } from 'utils';
 
 const VehiclesPage = () => {
   const { vehicles, fetchVehicles } = store;
@@ -48,8 +49,8 @@ const VehiclesPage = () => {
       { title: 'Max atmosphering speed', value: max_atmosphering_speed },
       { title: 'Cargo capacity', value: cargo_capacity },
       { title: 'Consumables', value: consumables },
-      { title: 'Created', value: created },
-      { title: 'Edited', value: edited },
+      { title: 'Created', value: dateFormatting(created) },
+      { title: 'Edited', value: dateFormatting(edited) },
     ];
     return (
       <Card key={name} title={name}>

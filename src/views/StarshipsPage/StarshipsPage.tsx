@@ -8,6 +8,7 @@ import { TStarship } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
+import { dateFormatting } from 'utils';
 
 const StarshipsPage = () => {
   const { starships, fetchStarships } = store;
@@ -52,8 +53,8 @@ const StarshipsPage = () => {
       { title: 'MGLT', value: MGLT },
       { title: 'Cargo capacity', value: cargo_capacity },
       { title: 'Consumables', value: consumables },
-      { title: 'Created', value: created },
-      { title: 'Edited', value: edited },
+      { title: 'Created', value: dateFormatting(created) },
+      { title: 'Edited', value: dateFormatting(edited) },
     ];
     return (
       <Card key={name} title={name}>
