@@ -1,13 +1,25 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main, WrapperPeople } from './People.styles';
+import {
+  Main,
+  WrapperPeople,
+  WrapperGender,
+  WrapperButtons,
+  GenderTitle,
+  GenderImage,
+} from './People.styles';
 import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TMan } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
+import { Paginator } from 'components/Paginator';
+import male from 'assets/images/male.jpg'
+import female from 'assets/images/female.jpg'
+import unknown from 'assets/images/unknown.jpg'
+
 
 const PeoplePage = () => {
   const { people, fetchPeople } = store;
@@ -36,7 +48,6 @@ const PeoplePage = () => {
       id,
     } = man;
     const info = [
-      { title: 'Gender', value: gender },
       { title: 'Birth Year', value: birth_year },
       { title: 'Eye Color', value: eye_color },
       { title: 'Hair Color', value: hair_color },
@@ -46,15 +57,25 @@ const PeoplePage = () => {
     ];
     return (
       <Card key={id} title={name}>
+        <WrapperGender>
+          <GenderTitle>Gender</GenderTitle>
+          <GenderImage
+            src={gender === 'male' ? male : gender === 'female' ? female : unknown}
+            alt="gender"
+          />
+        </WrapperGender>
         <CardListInfo data={info} />
       </Card>
     );
   });
   return (
     <Main>
-      <NavLink to="/">
-        <GoBack />
-      </NavLink>
+      <WrapperButtons>
+        <NavLink to="/">
+          <GoBack />
+        </NavLink>
+        <Paginator />
+      </WrapperButtons>
       <WrapperPeople>{CardItem}</WrapperPeople>
       <Footer />
     </Main>

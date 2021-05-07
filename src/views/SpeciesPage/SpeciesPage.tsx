@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main, WrapperSpecies } from './Species.styles';
+import { Main, WrapperButtons, WrapperSpecies } from './Species.styles';
 import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TSpecies } from 'types';
@@ -9,6 +9,7 @@ import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
 import { dateFormatting } from 'utils';
+import { Paginator } from 'components/Paginator';
 
 const SpeciesPage = () => {
   const { species, fetchSpecies } = store;
@@ -57,9 +58,12 @@ const SpeciesPage = () => {
   });
   return (
     <Main>
-      <NavLink to="/">
+      <WrapperButtons>
+       <NavLink to="/">
         <GoBack />
       </NavLink>
+        <Paginator />
+      </WrapperButtons>
       <WrapperSpecies>{CardItem}</WrapperSpecies>
       <Footer />
     </Main>

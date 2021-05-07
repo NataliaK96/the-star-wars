@@ -12,3 +12,12 @@ export const WrapperFilms = styled.div`
   flex-direction: column;
   margin: 0 20%
 `;
+
+export const WrapperButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 20px 5% 0 5%;
+  position: absolute;
+  width: 90%;
+`;

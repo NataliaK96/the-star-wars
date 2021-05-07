@@ -16,3 +16,24 @@ export const WrapperPeople = styled.div`
   flex-direction: column;
   margin: 0 20%;
 `;
+export const WrapperGender = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
+export const GenderTitle = styled.div`
+  display: flex;
+  min-width: 280px;
+  font-weight: 500;
+  font-size: 18px;
+`;
+export const GenderImage = styled.img`
+  width: 20px;
+`;
+export const WrapperButtons = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin: 20px 5% 0 5%;
+  position: absolute;
+  width: 90%;
+`;

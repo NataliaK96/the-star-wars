@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main, WrapperVehicles } from './Vehicles.styles';
+import { Main, WrapperButtons, WrapperVehicles } from './Vehicles.styles';
 import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TVehicle } from 'types';
@@ -9,6 +9,7 @@ import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
 import { dateFormatting } from 'utils';
+import { Paginator } from 'components/Paginator';
 
 const VehiclesPage = () => {
   const { vehicles, fetchVehicles } = store;
@@ -60,9 +61,12 @@ const VehiclesPage = () => {
   });
   return (
     <Main>
-      <NavLink to="/">
+      <WrapperButtons>
+       <NavLink to="/">
         <GoBack />
       </NavLink>
+        <Paginator />
+      </WrapperButtons>
       <WrapperVehicles>{CardItem}</WrapperVehicles>
       <Footer />
     </Main>
