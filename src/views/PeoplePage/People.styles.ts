@@ -19,15 +19,16 @@ export const WrapperPeople = styled.div`
 export const WrapperGender = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 `;
 export const GenderTitle = styled.div`
   display: flex;
-  min-width: 280px;
+  min-width: 270px;
   font-weight: 500;
   font-size: 18px;
 `;
 export const GenderImage = styled.img`
-  width: 20px;
+  width: 70px;
 `;
 export const WrapperButtons = styled.div`
   display: flex;
