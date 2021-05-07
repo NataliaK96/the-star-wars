@@ -23,6 +23,7 @@ export const WrapperButtons = styled.div`
   flex-direction: row;
   margin: 20px 5% 0 5%;
   position: absolute;
+  width: 90%;
 `;
 
 export const BackAndFilter = styled.div`
