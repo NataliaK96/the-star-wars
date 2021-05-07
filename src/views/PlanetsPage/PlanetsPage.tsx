@@ -1,13 +1,19 @@
 import React, { useCallback, useEffect } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
-import { Main, WrapperPlanets } from './Planets.styles';
+import {
+  Main,
+  WrapperPlanets,
+  WrapperButtons,
+  BackAndFilter,
+} from './Planets.styles';
 import { Footer } from 'components/Footer';
 import { Card } from 'components/Card';
 import { TPlanet } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
+import { Filter } from 'components/Filter';
 
 const PlanetsPage = () => {
   const { planets, fetchPlanets } = store;
@@ -56,9 +62,14 @@ const PlanetsPage = () => {
   });
   return (
     <Main>
-      <NavLink to="/">
-        <GoBack />
-      </NavLink>
+      <WrapperButtons>
+        <BackAndFilter>
+          <NavLink to="/">
+            <GoBack />
+          </NavLink>
+          <Filter />
+        </BackAndFilter>
+      </WrapperButtons>
       <WrapperPlanets>{CardItem}</WrapperPlanets>
       <Footer />
     </Main>
