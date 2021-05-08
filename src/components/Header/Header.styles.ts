@@ -1,17 +1,24 @@
 import styled from 'styled-components';
-import {Colors} from 'constants/colors'
+import { Colors } from 'constants/colors';
 
-export const HeaderMain = styled.div`
+export const Wrapper = styled.div`
   display: flex;
-  justify-content: center;
   align-items: center;
-  height: 16vh;
   padding: 12px;
   border-bottom: 1px solid ${Colors.yellow};
-  margin: 0 5%;
-
+  margin: 0 60px 30px ;
 `;
 export const Logo = styled.img`
-  height: 100%;
-  width: auto;
+  height: 100px;
+`;
+
+export const Column = styled.div`
+  flex: 1;
+  display: flex;
+  justify-content: center;
+`;
+export const MusicWrapper = styled.div`
+display: flex;
+justify-content: flex-end;
+width: 100%;
 `;
