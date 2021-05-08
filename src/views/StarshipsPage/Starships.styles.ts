@@ -6,7 +6,10 @@ export const Main = styled.div`
   color: ${Colors.white};
   background-image: url(${backgroundStarship});
   background-color: ${Colors.black};
-  width: 100%;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
 `;
 
 export const WrapperStarship = styled.div`

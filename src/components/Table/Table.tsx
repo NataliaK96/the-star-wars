@@ -1,8 +1,8 @@
 import React from 'react';
-//import { Table as TableBase } from 'antd';
-import { NavLink } from 'react-router-dom';
 import { TTableData } from 'types';
-import { TableStyled, TableBlock } from './Table.styles';
+import { TableStyled, TableWrapper } from './Table.styles';
+import { Link } from 'react-router-dom';
+import { OpenButton } from 'components/Buttons';
 
 type Props = {
   data: TTableData[];
@@ -36,18 +36,17 @@ const columns = [
     dataIndex: 'open',
     key: 4,
     render: (t: string, d: any, i: number) => (
-      <NavLink to={'/' + d.title}>open</NavLink>
+      <Link to={'/' + d.title}>
+        <OpenButton />
+      </Link>
     ),
   },
 ];
 
 export const Table: React.FC<Props> = ({ data }) => {
   return (
-    <TableBlock>
-      <TableStyled
-        dataSource={data}
-        columns={columns}
-      />
-    </TableBlock>
+    <TableWrapper>
+      <TableStyled dataSource={data} columns={columns} />
+    </TableWrapper>
   );
 };

@@ -1,1 +1,2 @@
-export {GoBack} from './GoBack'
+export { GoBack } from './GoBack';
+export { OpenButton } from './OpenButton';

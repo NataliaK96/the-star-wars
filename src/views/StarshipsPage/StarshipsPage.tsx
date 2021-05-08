@@ -16,7 +16,7 @@ const StarshipsPage = () => {
   const { data, context } = starships;
 
   const init = useCallback(async () => {
-    await fetchStarships();
+    await fetchStarships(1);
   }, [fetchStarships]);
   useEffect(() => {
     init();
@@ -69,7 +69,11 @@ const StarshipsPage = () => {
        <NavLink to="/">
         <GoBack />
       </NavLink>
-        <Paginator />
+      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
+          (page)=>{
+            fetchStarships(page)
+          }
+        } />
       </WrapperButtons>
       <WrapperStarship>{CardItem}</WrapperStarship>
       <Footer />

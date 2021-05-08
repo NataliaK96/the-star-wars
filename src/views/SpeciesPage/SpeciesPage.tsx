@@ -16,7 +16,7 @@ const SpeciesPage = () => {
   const { data, context } = species;
 
   const init = useCallback(async () => {
-    await fetchSpecies();
+    await fetchSpecies(1);
   }, [fetchSpecies]);
   useEffect(() => {
     init();
@@ -62,7 +62,11 @@ const SpeciesPage = () => {
        <NavLink to="/">
         <GoBack />
       </NavLink>
-        <Paginator />
+      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
+          (page)=>{
+            fetchSpecies(page)
+          }
+        } />
       </WrapperButtons>
       <WrapperSpecies>{CardItem}</WrapperSpecies>
       <Footer />

@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 import { Colors } from 'constants/colors';
-import { Button as ButtonGoBack } from 'antd';
+import { Button } from 'antd';
 
-export const GoBackStyled = styled(ButtonGoBack)`
+export const ButtonBase = styled(Button)`
   &&& {
     display: flex;
     align-items: center;
@@ -11,9 +11,17 @@ export const GoBackStyled = styled(ButtonGoBack)`
     border-color: ${Colors.yellow};
     font-size: 18px;
     margin-right: 20px;
+    :hover {
+      color: ${Colors.blue};
+      border-color: ${Colors.blue};
+    }
     & .ant-dropdown-trigger .anticon.anticon-down {
       font-size: 18px;
-    padding-top: 4px;
+      padding-top: 4px;
     }
   }
+`;
+
+export const OpenButton = styled(ButtonBase)`
+  margin-left: auto;
 `;

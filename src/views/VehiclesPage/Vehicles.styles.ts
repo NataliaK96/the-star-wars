@@ -6,7 +6,10 @@ export const Main = styled.div`
   color: ${Colors.white};
   background-image: url(${backgroundVehicles});
   background-color: ${Colors.black};
-  width: 100%;
+  flex: auto;
+  display: flex;
+  flex-direction: column;
+  background-repeat: no-repeat;
 `;
 
 export const WrapperVehicles = styled.div`

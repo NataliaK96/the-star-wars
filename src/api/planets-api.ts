@@ -1,7 +1,7 @@
 import {request} from './request';
 
-export const getPlanets = () => 
-request('/api/planets/', {
+export const getPlanets = (page: number = 1) => 
+request(`/api/planets/?page=${page}`, {
     method: 'GET',
   });
 

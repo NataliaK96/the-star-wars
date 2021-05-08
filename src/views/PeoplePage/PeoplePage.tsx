@@ -20,13 +20,12 @@ import male from 'assets/images/male.jpg'
 import female from 'assets/images/female.jpg'
 import unknown from 'assets/images/unknown.jpg'
 
-
 const PeoplePage = () => {
   const { people, fetchPeople } = store;
   const { data, context } = people;
 
   const init = useCallback(async () => {
-    await fetchPeople();
+    await fetchPeople(1);
   }, [fetchPeople]);
 
   useEffect(() => {
@@ -74,7 +73,11 @@ const PeoplePage = () => {
         <NavLink to="/">
           <GoBack />
         </NavLink>
-        <Paginator />
+        <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
+          (page)=>{
+            fetchPeople(page)
+          }
+        } />
       </WrapperButtons>
       <WrapperPeople>{CardItem}</WrapperPeople>
       <Footer />

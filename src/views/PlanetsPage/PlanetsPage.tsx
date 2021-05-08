@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import store from 'store';
 import { observer } from 'mobx-react';
 import {
@@ -15,14 +15,16 @@ import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
 import { Filter } from 'components/Filter';
 import { Paginator } from 'components/Paginator';
-import { dateFormatting } from 'utils';
+import { dateFormatting, onlyUnique } from 'utils';
 
 const PlanetsPage = () => {
   const { planets, fetchPlanets } = store;
   const { data, context } = planets;
 
+  const [filteredData, setFilteredData] = useState<TPlanet[]>(data);
+
   const init = useCallback(async () => {
-    await fetchPlanets();
+    await fetchPlanets(1);
   }, [fetchPlanets]);
   useEffect(() => {
     init();
@@ -30,7 +32,29 @@ const PlanetsPage = () => {
 
   if (!data) return null;
 
-  const CardItem = data.map((planet: TPlanet) => {
+  const climateVariants = data
+    .reduce((acc: any[], planet) => {
+      return acc.concat(planet.climate.split(',').map((t) => t.trim()));
+    }, [])
+    .filter(onlyUnique);
+
+  const onFilterByClimate = (climate: string) => {
+    const filtered = data.filter((d) => d.climate.indexOf(climate) !== -1);
+    setFilteredData(filtered);
+  };
+
+  const onFilterByTerrain = (climate: string) => {
+    const filtered = data.filter((d) => d.terrain.indexOf(climate) !== -1);
+    setFilteredData(filtered);
+  };
+
+  const terrainVariants = data
+    .reduce((acc: any[], planet) => {
+      return acc.concat(planet.terrain.split(',').map((t) => t.trim()));
+    }, [])
+    .filter(onlyUnique);
+
+  const CardItem = filteredData.map((planet: TPlanet) => {
     const {
       name,
       diameter,
@@ -69,9 +93,19 @@ const PlanetsPage = () => {
           <NavLink to="/">
             <GoBack />
           </NavLink>
-          <Filter />
+          <Filter
+            climateVariants={climateVariants}
+            terrainVariants={terrainVariants}
+            onFilterByClimate={onFilterByClimate}
+            onFilterByTerrain={onFilterByTerrain}
+            reset={()=>setFilteredData(data)}
+          />
         </BackAndFilter>
-        <Paginator />
+        <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
+          (page)=>{
+            fetchPlanets(page)
+          }
+        } />
       </WrapperButtons>
       <WrapperPlanets>{CardItem}</WrapperPlanets>
       <Footer />

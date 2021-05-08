@@ -1,7 +1,20 @@
 import React from 'react';
-import 'antd/dist/antd.css';
 import { PaginationStyled } from './Paginator.styles';
 
-export const Paginator = () => {
-  return <PaginationStyled size="small" total={50} />;
+type Props = {
+  total: number;
+  current: number;
+  onChange: (page: number, pageSize?: number) => void;
+};
+
+export const Paginator: React.FC<Props> = ({ total, onChange, current }) => {
+  return (
+    <PaginationStyled
+      current={current}
+      onChange={onChange}
+      total={total}
+      size="small"
+      showSizeChanger={false}
+    />
+  );
 };

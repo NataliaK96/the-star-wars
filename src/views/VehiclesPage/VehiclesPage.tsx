@@ -16,7 +16,7 @@ const VehiclesPage = () => {
   const { data, context } = vehicles;
 
   const init = useCallback(async () => {
-    await fetchVehicles();
+    await fetchVehicles(1);
   }, [fetchVehicles]);
   useEffect(() => {
     init();
@@ -65,7 +65,11 @@ const VehiclesPage = () => {
        <NavLink to="/">
         <GoBack />
       </NavLink>
-        <Paginator />
+      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
+          (page)=>{
+            fetchVehicles(page)
+          }
+        } />
       </WrapperButtons>
       <WrapperVehicles>{CardItem}</WrapperVehicles>
       <Footer />

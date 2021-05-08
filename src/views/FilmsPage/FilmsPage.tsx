@@ -8,15 +8,13 @@ import { TFilm } from 'types';
 import { CardListInfo } from 'components/CardListInfo';
 import { NavLink } from 'react-router-dom';
 import { GoBack } from 'components/Buttons';
-import { Paginator } from 'components/Paginator';
 import { dateFormatting } from 'utils';
 
 const FilmsPage = () => {
   const { films, fetchFilms } = store;
-  const { data, context } = films;
-
+  const { data } = films;
   const init = useCallback(async () => {
-    await fetchFilms();
+    await fetchFilms(1);
   }, [fetchFilms]);
 
   useEffect(() => {
@@ -38,7 +36,7 @@ const FilmsPage = () => {
       { title: 'Plot', value: opening_crawl },
       { title: 'Director', value: director },
       { title: 'Producer ', value: producer },
-      { title: 'Release', value: dateFormatting(release_date)},
+      { title: 'Release', value: dateFormatting(release_date) },
     ];
     return (
       <Card key={episode_id} title={title}>
@@ -52,9 +50,7 @@ const FilmsPage = () => {
         <NavLink to="/">
           <GoBack />
         </NavLink>
-        <Paginator />
       </WrapperButtons>
-
       <WrapperFilms>{CardItem}</WrapperFilms>
       <Footer />
     </Main>
