@@ -4,7 +4,7 @@ React application
 **Deploy:** https://starwars-magenta.netlify.app/#/
 
 ### Tablet
-![image](https://user-images.githubusercontent.com/60849245/117576656-bbda7900-b0f7-11eb-808d-48cdfcb71b7b.png)
+![image](https://user-images.githubusercontent.com/60849245/117577283-386e5700-b0fa-11eb-97f3-caebdf5576b3.png)
 ### Mobile
 ![image](https://user-images.githubusercontent.com/60849245/117576700-e298af80-b0f7-11eb-8e58-626c1141b227.png)
 
