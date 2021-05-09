@@ -15,6 +15,11 @@ export const ButtonBase = styled(Button)`
       color: ${Colors.blue};
       border-color: ${Colors.blue};
     }
+    @media (max-width: 600px) {
+      font-size: 14px;
+      margin: 0 8px 0 0;
+      }
+    }
     & .ant-dropdown-trigger .anticon.anticon-down {
       font-size: 18px;
       padding-top: 4px;

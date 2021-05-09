@@ -8,6 +8,10 @@ export const FooterBase = styled.div`
   color: ${Colors.white};
   width: 100%;
   padding-left: 60px;
+  @media (max-width: 450px) {
+    padding-left: 10px;
+    }
+  }
 `
 export const Link = styled.a`
   color: ${Colors.white};

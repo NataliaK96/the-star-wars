@@ -16,9 +16,9 @@ import { CardListInfo } from 'components/CardListInfo'
 import { NavLink } from 'react-router-dom'
 import { GoBack } from 'components/Buttons'
 import { Paginator } from 'components/Paginator'
-import male from 'assets/images/male.jpg'
-import female from 'assets/images/female.jpg'
-import unknown from 'assets/images/unknown.jpg'
+import male from 'assets/images/male.png'
+import female from 'assets/images/female.png'
+import unknown from 'assets/images/unknown.png'
 import { dateFormatting } from 'utils'
 
 const PeoplePage = () => {

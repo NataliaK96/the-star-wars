@@ -11,9 +11,20 @@ export const WrapperFilms = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 30px 20%;
+  @media (max-width: 600px) {
+    margin: 10px;
+    }
+  }
 `
 
 export const WrapperButtons = styled.div`
   margin: 0 60px 30px;
-  position: absolute;
+  @media (max-width: 600px) {
+    margin: 0 60px 15px;
+    }
+  }
+  @media (max-width: 450px) {
+    margin: 10px;
+    }
+  }
 `

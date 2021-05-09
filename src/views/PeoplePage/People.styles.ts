@@ -12,13 +12,26 @@ export const Main = styled.div`
   flex: auto;
   flex-direction: column;
   background-repeat: no-repeat;
+  @media (max-width: 600px) {
+    background-position-x: center;
+    }
+  }
 `
 
 export const WrapperPeople = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  margin: 30px 20%;
+background-color: ${Colors.greyTransperent};
+display: flex;
+justify-content: center;
+flex-direction: column;
+margin: 0 20%;
+@media (max-width: 600px) {
+  margin: 0 30px;
+  }
+}
+@media (max-width: 450px) {
+  margin: 0 10px;
+  }
+}
 `
 export const WrapperGender = styled.div`
   display: flex;
@@ -31,7 +44,7 @@ export const GenderTitle = styled.div`
   font-weight: 500;
   font-size: 18px;
   @media (max-width: 1000px) {
-    min-width: 150px;
+    min-width: 115px;
     }
   }
 `
@@ -39,10 +52,13 @@ export const GenderImage = styled.img`
   width: 70px;
 `
 export const WrapperButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  position: absolute;
-  width: -webkit-fill-available;
-  margin: 0 60px 30px;
+display: flex;
+justify-content: space-between;
+flex-direction: row;
+width: -webkit-fill-available;
+margin: 0 60px 30px;
+@media (max-width: 450px) {
+  margin: 0 10px 10px;
+  }
+}
 `

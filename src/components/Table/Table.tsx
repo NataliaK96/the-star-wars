@@ -1,6 +1,6 @@
 import React from 'react'
 import { TTableData } from 'types'
-import { TableStyled, TableWrapper } from './Table.styles'
+import { TableStyled, TableWrapper, ApiLink } from './Table.styles'
 import { Link } from 'react-router-dom'
 import { OpenButton } from 'components/Buttons'
 
@@ -26,9 +26,11 @@ const columns = [
     dataIndex: 'api',
     key: 3,
     render: (t: string, d: any, i: number) => (
-      <a href={d.api} target="_blank" rel="noreferrer">
-        {d.api}
-      </a>
+      <ApiLink>
+        <a href={d.api} target="_blank" rel="noreferrer">
+          {d.api}
+        </a>
+      </ApiLink>
     ),
   },
   {

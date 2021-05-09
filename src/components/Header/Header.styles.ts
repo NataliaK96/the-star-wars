@@ -7,9 +7,21 @@ export const Wrapper = styled.div`
   padding: 12px;
   border-bottom: 1px solid ${Colors.yellow};
   margin: 0 60px 30px;
+  @media (max-width: 600px) {
+    margin: 0 60px 15px;
+    }
+  }
+  @media (max-width: 450px) {
+    margin: 0 30px 15px;
+    }
+  }
 `
 export const Logo = styled.img`
   height: 100px;
+  @media (max-width: 600px) {
+    height: 60px;
+    }
+  }
 `
 
 export const Column = styled.div`
