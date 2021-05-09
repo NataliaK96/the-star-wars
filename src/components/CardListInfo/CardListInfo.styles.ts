@@ -10,10 +10,11 @@ export const InfoTitle = styled.div`
   font-weight: 500;
   font-size: 18px;
   @media (max-width: 1000px) {
-    min-width: 125px;
+    min-width: 145px;
   }
   @media (max-width: 600px) {
     font-size: 16px;
+    min-width: 125px;
   }
 `;
 export const InfoValue = styled.div`
