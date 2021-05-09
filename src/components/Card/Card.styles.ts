@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Colors } from 'constants/colors'
+import styled from 'styled-components';
+import { Colors } from 'constants/colors';
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   &:last-child {
     border-bottom: none;
   }
-`
+`;
 
 export const Title = styled.div`
   display: flex;
@@ -20,10 +20,9 @@ export const Title = styled.div`
   font-size: 28px;
   @media (max-width: 600px) {
     font-size: 22px;
-    }
   }
-`
+`;
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
-`
+`;

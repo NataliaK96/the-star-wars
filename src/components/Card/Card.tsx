@@ -1,8 +1,8 @@
-import React from 'react'
-import { TCardData } from 'types'
-import { Info, Title, Wrapper } from './Card.styles'
+import React from 'react';
+import { TCardData } from 'types';
+import { Info, Title, Wrapper } from './Card.styles';
 
-type Props = TCardData
+type Props = TCardData;
 
 export const Card: React.FC<Props> = ({ title, children }) => {
   return (
@@ -10,5 +10,5 @@ export const Card: React.FC<Props> = ({ title, children }) => {
       <Title>{title}</Title>
       <Info>{children}</Info>
     </Wrapper>
-  )
-}
+  );
+};

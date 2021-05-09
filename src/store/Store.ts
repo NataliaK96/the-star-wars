@@ -1,4 +1,4 @@
-import { flow, types } from 'mobx-state-tree'
+import { flow, types } from 'mobx-state-tree';
 import {
   MSections,
   MFilm,
@@ -8,7 +8,7 @@ import {
   MStarship,
   MVehicle,
   MContext,
-} from 'models'
+} from 'models';
 import {
   getSections,
   getFilms,
@@ -17,8 +17,8 @@ import {
   getSpecies,
   getStarships,
   getVehicles,
-} from 'api'
-import { createContext } from 'utils'
+} from 'api';
+import { createContext } from 'utils';
 
 const Store = types
   .model({
@@ -69,71 +69,71 @@ const Store = types
   .actions((self) => ({
     fetchSections: flow(function* () {
       try {
-        const sections = yield getSections()
-        self.sections = sections
+        const sections = yield getSections();
+        self.sections = sections;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchFilms: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getFilms()
-        self.films.context = createContext(count, next, previous, page)
-        self.films.data = results
+        const { count, next, previous, results } = yield getFilms();
+        self.films.context = createContext(count, next, previous, page);
+        self.films.data = results;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchPeople: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getPeople(page)
-        self.people.context = createContext(count, next, previous, page)
+        const { count, next, previous, results } = yield getPeople(page);
+        self.people.context = createContext(count, next, previous, page);
         const people = results.map((man: any) => {
-          const splitedUrl = man.url?.split('/')
-          const id = Number(splitedUrl[splitedUrl.length - 2])
-          return { ...man, id }
-        })
-        self.people.data = people
+          const splitedUrl = man.url?.split('/');
+          const id = Number(splitedUrl[splitedUrl.length - 2]);
+          return { ...man, id };
+        });
+        self.people.data = people;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchPlanets: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getPlanets(page)
-        self.planets.context = createContext(count, next, previous, page)
-        self.planets.data = results
+        const { count, next, previous, results } = yield getPlanets(page);
+        self.planets.context = createContext(count, next, previous, page);
+        self.planets.data = results;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchSpecies: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getSpecies(page)
-        self.species.context = createContext(count, next, previous, page)
-        self.species.data = results
+        const { count, next, previous, results } = yield getSpecies(page);
+        self.species.context = createContext(count, next, previous, page);
+        self.species.data = results;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchStarships: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getStarships(page)
-        self.starships.context = createContext(count, next, previous, page)
-        self.starships.data = results
+        const { count, next, previous, results } = yield getStarships(page);
+        self.starships.context = createContext(count, next, previous, page);
+        self.starships.data = results;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
     fetchVehicles: flow(function* (page: number) {
       try {
-        const { count, next, previous, results } = yield getVehicles(page)
-        self.vehicles.context = createContext(count, next, previous, page)
-        self.vehicles.data = results
+        const { count, next, previous, results } = yield getVehicles(page);
+        self.vehicles.context = createContext(count, next, previous, page);
+        self.vehicles.data = results;
       } catch (error) {
-        console.error(error)
+        console.error(error);
       }
     }),
-  }))
+  }));
 
-export default Store
+export default Store;

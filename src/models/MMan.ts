@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree';
 
 export const MMan = types.model({
   name: types.string,
@@ -18,4 +18,4 @@ export const MMan = types.model({
   created: types.string,
   edited: types.string,
   id: types.maybeNull(types.number),
-})
+});

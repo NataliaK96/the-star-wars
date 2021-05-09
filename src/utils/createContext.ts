@@ -1,4 +1,4 @@
-import { TContext } from 'types'
+import { TContext } from 'types';
 
 export const createContext = (
   count: number | null,
@@ -13,4 +13,4 @@ export const createContext = (
       : Number(new URL(previous).searchParams.get('page')),
   count: count,
   current: page,
-})
+});

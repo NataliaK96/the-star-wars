@@ -1,6 +1,6 @@
-import React, { useCallback, useEffect } from 'react'
-import store from 'store'
-import { observer } from 'mobx-react'
+import React, { useCallback, useEffect, useState } from 'react';
+import store from 'store';
+import { observer } from 'mobx-react';
 import {
   Main,
   WrapperPeople,
@@ -8,32 +8,36 @@ import {
   WrapperButtons,
   GenderTitle,
   GenderImage,
-} from './People.styles'
-import { Footer } from 'components/Footer'
-import { Card } from 'components/Card'
-import { TMan } from 'types'
-import { CardListInfo } from 'components/CardListInfo'
-import { NavLink } from 'react-router-dom'
-import { GoBack } from 'components/Buttons'
-import { Paginator } from 'components/Paginator'
-import male from 'assets/images/male.png'
-import female from 'assets/images/female.png'
-import unknown from 'assets/images/unknown.png'
-import { dateFormatting } from 'utils'
+} from './People.styles';
+import { Footer } from 'components/Footer';
+import { Card } from 'components/Card';
+import { TMan } from 'types';
+import { CardListInfo } from 'components/CardListInfo';
+import { NavLink } from 'react-router-dom';
+import { GoBack } from 'components/Buttons';
+import { Paginator } from 'components/Paginator';
+import male from 'assets/images/male.png';
+import female from 'assets/images/female.png';
+import unknown from 'assets/images/unknown.png';
+import { dateFormatting } from 'utils';
+import { Loader } from 'components/Loader';
 
 const PeoplePage = () => {
-  const { people, fetchPeople } = store
-  const { data, context } = people
+  const [isLoading, setLoading] = useState<boolean>(true);
+  const { people, fetchPeople } = store;
+  const { data, context } = people;
 
   const init = useCallback(async () => {
-    await fetchPeople(1)
-  }, [fetchPeople])
+    setLoading(true);
+    await fetchPeople(1);
+    setLoading(false);
+  }, [fetchPeople]);
 
   useEffect(() => {
-    init()
-  }, [init])
+    init();
+  }, [init]);
 
-  if (!data) return null
+  if (!data) return null;
 
   const CardItem = data.map((man: TMan) => {
     const {
@@ -48,7 +52,7 @@ const PeoplePage = () => {
       id,
       created,
       edited,
-    } = man
+    } = man;
     const info = [
       { title: 'Birth Year', value: birth_year },
       { title: 'Eye Color', value: eye_color },
@@ -58,7 +62,7 @@ const PeoplePage = () => {
       { title: 'Skin Color', value: skin_color },
       { title: 'Created', value: dateFormatting(created) },
       { title: 'Edited', value: dateFormatting(edited) },
-    ]
+    ];
     return (
       <Card key={id} title={name}>
         <WrapperGender>
@@ -72,8 +76,8 @@ const PeoplePage = () => {
         </WrapperGender>
         <CardListInfo data={info} />
       </Card>
-    )
-  })
+    );
+  });
   return (
     <Main>
       <WrapperButtons>
@@ -84,13 +88,13 @@ const PeoplePage = () => {
           current={context?.current || 1}
           total={context?.count || 0}
           onChange={(page) => {
-            fetchPeople(page)
+            fetchPeople(page);
           }}
         />
       </WrapperButtons>
-      <WrapperPeople>{CardItem}</WrapperPeople>
+      <WrapperPeople>{isLoading ? <Loader /> : CardItem}</WrapperPeople>
       <Footer />
     </Main>
-  )
-}
-export default observer(PeoplePage)
+  );
+};
+export default observer(PeoplePage);

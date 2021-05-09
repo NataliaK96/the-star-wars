@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree';
 
 export const MStarship = types.model({
   name: types.string,
@@ -19,4 +19,4 @@ export const MStarship = types.model({
   url: types.string,
   created: types.string,
   edited: types.string,
-})
+});

@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree';
 
 export const MPlanet = types.model({
   name: types.string,
@@ -15,4 +15,4 @@ export const MPlanet = types.model({
   url: types.string,
   created: types.string,
   edited: types.string,
-})
+});

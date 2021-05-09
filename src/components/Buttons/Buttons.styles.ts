@@ -1,6 +1,6 @@
-import styled from 'styled-components'
-import { Colors } from 'constants/colors'
-import { Button } from 'antd'
+import styled from 'styled-components';
+import { Colors } from 'constants/colors';
+import { Button } from 'antd';
 
 export const ButtonBase = styled(Button)`
   &&& {
@@ -18,15 +18,14 @@ export const ButtonBase = styled(Button)`
     @media (max-width: 600px) {
       font-size: 14px;
       margin: 0 8px 0 0;
-      }
     }
     & .ant-dropdown-trigger .anticon.anticon-down {
       font-size: 18px;
       padding-top: 4px;
     }
   }
-`
+`;
 
 export const OpenButton = styled(ButtonBase)`
   margin-left: auto;
-`
+`;

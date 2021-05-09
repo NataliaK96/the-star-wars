@@ -1,5 +1,5 @@
-import Store from './Store'
+import Store from './Store';
 
-const store = Store.create({})
+const store = Store.create({});
 
-export default store
+export default store;

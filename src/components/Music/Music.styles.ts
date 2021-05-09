@@ -1,5 +1,5 @@
-import styled from 'styled-components'
-import { Colors } from 'constants/colors'
+import styled from 'styled-components';
+import { Colors } from 'constants/colors';
 
 export const SongWrapper = styled.div`
   &&& {
@@ -20,8 +20,7 @@ export const SongWrapper = styled.div`
     .anticon svg {
       @media (max-width: 600px) {
         width: 30px;
-        }
       }
     }
   }
-`
+`;

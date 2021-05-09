@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree';
 
 export const MSections = types.model({
   films: types.string,
@@ -7,4 +7,4 @@ export const MSections = types.model({
   species: types.string,
   starships: types.string,
   vehicles: types.string,
-})
+});

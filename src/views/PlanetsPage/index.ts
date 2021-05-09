@@ -1,2 +1,2 @@
-import PlanetsPage from './PlanetsPage'
-export default PlanetsPage
+import PlanetsPage from './PlanetsPage';
+export default PlanetsPage;

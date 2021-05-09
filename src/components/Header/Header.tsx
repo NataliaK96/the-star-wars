@@ -1,7 +1,7 @@
-import React from 'react'
-import { Wrapper, Logo, Column, MusicWrapper } from './Header.styles'
-import starWarsLogo from 'assets/images/Star_Wars_Logo.png'
-import { Music } from 'components/Music'
+import React from 'react';
+import { Wrapper, Logo, Column, MusicWrapper } from './Header.styles';
+import starWarsLogo from 'assets/images/Star_Wars_Logo.png';
+import { Music } from 'components/Music';
 
 export const Header = () => {
   return (
@@ -16,5 +16,5 @@ export const Header = () => {
         </MusicWrapper>
       </Column>
     </Wrapper>
-  )
-}
+  );
+};

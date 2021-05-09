@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree'
+import { types } from 'mobx-state-tree';
 
 export const MSpecies = types.model({
   name: types.string,
@@ -16,4 +16,4 @@ export const MSpecies = types.model({
   url: types.string,
   created: types.string,
   edited: types.string,
-})
+});

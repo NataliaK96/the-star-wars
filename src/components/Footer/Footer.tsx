@@ -1,5 +1,5 @@
-import React from 'react'
-import { FooterBase, Link } from './Footer.styles'
+import React from 'react';
+import { FooterBase, Link } from './Footer.styles';
 
 export const Footer = () => {
   return (
@@ -14,5 +14,5 @@ export const Footer = () => {
         </Link>
       </div>
     </FooterBase>
-  )
-}
+  );
+};
