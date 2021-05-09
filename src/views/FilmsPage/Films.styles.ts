@@ -3,21 +3,17 @@ import { Colors } from 'constants/colors'
 
 export const Main = styled.div`
   color: ${Colors.white};
-  width: 100%;
+  display: flex;
+  flex-direction: column;
 `
 export const WrapperFilms = styled.div`
   display: flex;
-  flex: auto;
   justify-content: center;
   flex-direction: column;
-  margin: 0 20%;
+  margin: 30px 20%;
 `
 
 export const WrapperButtons = styled.div`
-  display: flex;
-  justify-content: space-between;
-  flex-direction: row;
-  margin: 20px 5% 0 5%;
+  margin: 0 60px 30px;
   position: absolute;
-  width: 90%;
 `

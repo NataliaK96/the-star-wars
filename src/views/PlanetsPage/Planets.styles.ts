@@ -6,6 +6,8 @@ export const Main = styled.div`
   color: ${Colors.white};
   background-image: url(${backgroundPlanets});
   background-color: ${Colors.black};
+  background-position-y: top;
+  background-position-x: right;
   flex: auto;
   display: flex;
   flex-direction: column;
@@ -14,19 +16,18 @@ export const Main = styled.div`
 
 export const WrapperPlanets = styled.div`
   display: flex;
-  flex: auto;
   justify-content: center;
   flex-direction: column;
-  margin: 0 20%;
+  margin: 30px 20%;
 `
 
 export const WrapperButtons = styled.div`
   display: flex;
   justify-content: space-between;
   flex-direction: row;
-  margin: 20px 5% 0 5%;
   position: absolute;
-  width: 90%;
+  width: -webkit-fill-available;
+  margin: 0 60px 30px;
 `
 
 export const BackAndFilter = styled.div`
