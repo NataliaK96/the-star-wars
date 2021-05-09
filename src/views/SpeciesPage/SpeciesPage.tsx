@@ -69,8 +69,10 @@ const SpeciesPage = () => {
         <Paginator
           current={context?.current || 1}
           total={context?.count || 0}
-          onChange={(page) => {
-            fetchSpecies(page);
+          onChange={async (page) => {
+            setLoading(true);
+            await fetchSpecies(page);
+            setLoading(false);
           }}
         />
       </WrapperButtons>

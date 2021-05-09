@@ -72,8 +72,10 @@ const VehiclesPage = () => {
         <Paginator
           current={context?.current || 1}
           total={context?.count || 0}
-          onChange={(page) => {
-            fetchVehicles(page);
+          onChange={async (page) => {
+            setLoading(true);
+            await fetchVehicles(page);
+            setLoading(false);
           }}
         />
       </WrapperButtons>

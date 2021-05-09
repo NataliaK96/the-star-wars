@@ -108,8 +108,10 @@ const PlanetsPage = () => {
         <Paginator
           current={context?.current || 1}
           total={context?.count || 0}
-          onChange={(page) => {
-            fetchPlanets(page);
+          onChange={async (page) => {
+            setLoading(true);
+            await fetchPlanets(page);
+            setLoading(false);
           }}
         />
       </WrapperButtons>

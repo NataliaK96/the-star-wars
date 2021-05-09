@@ -87,8 +87,10 @@ const PeoplePage = () => {
         <Paginator
           current={context?.current || 1}
           total={context?.count || 0}
-          onChange={(page) => {
-            fetchPeople(page);
+          onChange={async (page) => {
+            setLoading(true);
+            await fetchPeople(page);
+            setLoading(false);
           }}
         />
       </WrapperButtons>
