@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect } from 'react';
-import store from 'store';
-import { observer } from 'mobx-react';
-import { Main, WrapperButtons, WrapperVehicles } from './Vehicles.styles';
-import { Footer } from 'components/Footer';
-import { Card } from 'components/Card';
-import { TVehicle } from 'types';
-import { CardListInfo } from 'components/CardListInfo';
-import { NavLink } from 'react-router-dom';
-import { GoBack } from 'components/Buttons';
-import { dateFormatting } from 'utils';
-import { Paginator } from 'components/Paginator';
+import React, { useCallback, useEffect } from 'react'
+import store from 'store'
+import { observer } from 'mobx-react'
+import { Main, WrapperButtons, WrapperVehicles } from './Vehicles.styles'
+import { Footer } from 'components/Footer'
+import { Card } from 'components/Card'
+import { TVehicle } from 'types'
+import { CardListInfo } from 'components/CardListInfo'
+import { NavLink } from 'react-router-dom'
+import { GoBack } from 'components/Buttons'
+import { dateFormatting } from 'utils'
+import { Paginator } from 'components/Paginator'
 
 const VehiclesPage = () => {
-  const { vehicles, fetchVehicles } = store;
-  const { data, context } = vehicles;
+  const { vehicles, fetchVehicles } = store
+  const { data, context } = vehicles
 
   const init = useCallback(async () => {
-    await fetchVehicles(1);
-  }, [fetchVehicles]);
+    await fetchVehicles(1)
+  }, [fetchVehicles])
   useEffect(() => {
-    init();
-  }, [init]);
+    init()
+  }, [init])
 
-  if (!data) return null;
+  if (!data) return null
   const CardItem = data.map((vehicle: TVehicle) => {
     const {
       name,
@@ -38,7 +38,7 @@ const VehiclesPage = () => {
       consumables,
       created,
       edited,
-    } = vehicle;
+    } = vehicle
     const info = [
       { title: 'Model', value: model },
       { title: 'Vehicle class', value: vehicle_class },
@@ -52,29 +52,31 @@ const VehiclesPage = () => {
       { title: 'Consumables', value: consumables },
       { title: 'Created', value: dateFormatting(created) },
       { title: 'Edited', value: dateFormatting(edited) },
-    ];
+    ]
     return (
       <Card key={name} title={name}>
         <CardListInfo data={info} />
       </Card>
-    );
-  });
+    )
+  })
   return (
     <Main>
       <WrapperButtons>
-       <NavLink to="/">
-        <GoBack />
-      </NavLink>
-      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
-          (page)=>{
+        <NavLink to="/">
+          <GoBack />
+        </NavLink>
+        <Paginator
+          current={context?.current || 1}
+          total={context?.count || 0}
+          onChange={(page) => {
             fetchVehicles(page)
-          }
-        } />
+          }}
+        />
       </WrapperButtons>
       <WrapperVehicles>{CardItem}</WrapperVehicles>
       <Footer />
     </Main>
-  );
-};
+  )
+}
 
-export default observer(VehiclesPage);
+export default observer(VehiclesPage)

@@ -1,11 +1,11 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
-import { Table as TableBase } from 'antd';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
+import { Table as TableBase } from 'antd'
 
 export const TableWrapper = styled.div`
   margin: 0 100px;
   flex: auto;
-`;
+`
 
 export const TableStyled = styled(TableBase)`
   &&& {
@@ -28,4 +28,4 @@ export const TableStyled = styled(TableBase)`
       display: none;
     }
   }
-`;
+`

@@ -1,58 +1,58 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import store from 'store';
-import { observer } from 'mobx-react';
+import React, { useCallback, useEffect, useState } from 'react'
+import store from 'store'
+import { observer } from 'mobx-react'
 import {
   Main,
   WrapperPlanets,
   WrapperButtons,
   BackAndFilter,
-} from './Planets.styles';
-import { Footer } from 'components/Footer';
-import { Card } from 'components/Card';
-import { TPlanet } from 'types';
-import { CardListInfo } from 'components/CardListInfo';
-import { NavLink } from 'react-router-dom';
-import { GoBack } from 'components/Buttons';
-import { Filter } from 'components/Filter';
-import { Paginator } from 'components/Paginator';
-import { dateFormatting, onlyUnique } from 'utils';
+} from './Planets.styles'
+import { Footer } from 'components/Footer'
+import { Card } from 'components/Card'
+import { TPlanet } from 'types'
+import { CardListInfo } from 'components/CardListInfo'
+import { NavLink } from 'react-router-dom'
+import { GoBack } from 'components/Buttons'
+import { Filter } from 'components/Filter'
+import { Paginator } from 'components/Paginator'
+import { dateFormatting, onlyUnique } from 'utils'
 
 const PlanetsPage = () => {
-  const { planets, fetchPlanets } = store;
-  const { data, context } = planets;
+  const { planets, fetchPlanets } = store
+  const { data, context } = planets
 
-  const [filteredData, setFilteredData] = useState<TPlanet[]>(data);
+  const [filteredData, setFilteredData] = useState<TPlanet[]>(data)
 
   const init = useCallback(async () => {
-    await fetchPlanets(1);
-  }, [fetchPlanets]);
+    await fetchPlanets(1)
+  }, [fetchPlanets])
   useEffect(() => {
-    init();
-  }, [init]);
+    init()
+  }, [init])
 
-  if (!data) return null;
+  if (!data) return null
 
   const climateVariants = data
     .reduce((acc: any[], planet) => {
-      return acc.concat(planet.climate.split(',').map((t) => t.trim()));
+      return acc.concat(planet.climate.split(',').map((t) => t.trim()))
     }, [])
-    .filter(onlyUnique);
+    .filter(onlyUnique)
 
   const onFilterByClimate = (climate: string) => {
-    const filtered = data.filter((d) => d.climate.indexOf(climate) !== -1);
-    setFilteredData(filtered);
-  };
+    const filtered = data.filter((d) => d.climate.indexOf(climate) !== -1)
+    setFilteredData(filtered)
+  }
 
   const onFilterByTerrain = (climate: string) => {
-    const filtered = data.filter((d) => d.terrain.indexOf(climate) !== -1);
-    setFilteredData(filtered);
-  };
+    const filtered = data.filter((d) => d.terrain.indexOf(climate) !== -1)
+    setFilteredData(filtered)
+  }
 
   const terrainVariants = data
     .reduce((acc: any[], planet) => {
-      return acc.concat(planet.terrain.split(',').map((t) => t.trim()));
+      return acc.concat(planet.terrain.split(',').map((t) => t.trim()))
     }, [])
-    .filter(onlyUnique);
+    .filter(onlyUnique)
 
   const CardItem = filteredData.map((planet: TPlanet) => {
     const {
@@ -67,7 +67,7 @@ const PlanetsPage = () => {
       surface_water,
       created,
       edited,
-    } = planet;
+    } = planet
     const info = [
       { title: 'Diameter', value: diameter },
       { title: 'Rotation period ', value: rotation_period },
@@ -79,13 +79,13 @@ const PlanetsPage = () => {
       { title: 'Surface Water', value: surface_water },
       { title: 'Created', value: dateFormatting(created) },
       { title: 'Edited', value: dateFormatting(edited) },
-    ];
+    ]
     return (
       <Card key={name} title={name}>
         <CardListInfo data={info} />
       </Card>
-    );
-  });
+    )
+  })
   return (
     <Main>
       <WrapperButtons>
@@ -98,19 +98,21 @@ const PlanetsPage = () => {
             terrainVariants={terrainVariants}
             onFilterByClimate={onFilterByClimate}
             onFilterByTerrain={onFilterByTerrain}
-            reset={()=>setFilteredData(data)}
+            reset={() => setFilteredData(data)}
           />
         </BackAndFilter>
-        <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
-          (page)=>{
+        <Paginator
+          current={context?.current || 1}
+          total={context?.count || 0}
+          onChange={(page) => {
             fetchPlanets(page)
-          }
-        } />
+          }}
+        />
       </WrapperButtons>
       <WrapperPlanets>{CardItem}</WrapperPlanets>
       <Footer />
     </Main>
-  );
-};
+  )
+}
 
-export default observer(PlanetsPage);
+export default observer(PlanetsPage)

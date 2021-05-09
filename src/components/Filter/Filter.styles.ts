@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
-import { Dropdown as DropdownBase} from 'antd';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
+import { Dropdown as DropdownBase } from 'antd'
 
 export const DropdownStyled = styled(DropdownBase)`
   &&& {
@@ -15,4 +15,4 @@ export const DropdownStyled = styled(DropdownBase)`
     }
     }
   }
-`;
+`

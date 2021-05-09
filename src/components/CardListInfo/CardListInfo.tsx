@@ -1,12 +1,12 @@
-import React from 'react';
-import { InfoTitle, InfoValue, Row } from './CardListInfo.styles';
+import React from 'react'
+import { InfoTitle, InfoValue, Row } from './CardListInfo.styles'
 
 type Props = {
   data: {
-    title: string;
-    value: string | number;
-  }[];
-};
+    title: string
+    value: string | number
+  }[]
+}
 
 export const CardListInfo: React.FC<Props> = ({ data }) => {
   return (
@@ -18,5 +18,5 @@ export const CardListInfo: React.FC<Props> = ({ data }) => {
         </Row>
       ))}
     </>
-  );
-};
+  )
+}

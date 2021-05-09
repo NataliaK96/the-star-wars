@@ -1,2 +1,2 @@
-import VehiclesPage from './VehiclesPage';
+import VehiclesPage from './VehiclesPage'
 export default VehiclesPage

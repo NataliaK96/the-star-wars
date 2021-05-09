@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect } from 'react';
-import store from 'store';
-import { observer } from 'mobx-react';
-import { Main, WrapperButtons, WrapperStarship } from './Starships.styles';
-import { Footer } from 'components/Footer';
-import { Card } from 'components/Card';
-import { TStarship } from 'types';
-import { CardListInfo } from 'components/CardListInfo';
-import { NavLink } from 'react-router-dom';
-import { GoBack } from 'components/Buttons';
-import { dateFormatting } from 'utils';
-import { Paginator } from 'components/Paginator';
+import React, { useCallback, useEffect } from 'react'
+import store from 'store'
+import { observer } from 'mobx-react'
+import { Main, WrapperButtons, WrapperStarship } from './Starships.styles'
+import { Footer } from 'components/Footer'
+import { Card } from 'components/Card'
+import { TStarship } from 'types'
+import { CardListInfo } from 'components/CardListInfo'
+import { NavLink } from 'react-router-dom'
+import { GoBack } from 'components/Buttons'
+import { dateFormatting } from 'utils'
+import { Paginator } from 'components/Paginator'
 
 const StarshipsPage = () => {
-  const { starships, fetchStarships } = store;
-  const { data, context } = starships;
+  const { starships, fetchStarships } = store
+  const { data, context } = starships
 
   const init = useCallback(async () => {
-    await fetchStarships(1);
-  }, [fetchStarships]);
+    await fetchStarships(1)
+  }, [fetchStarships])
   useEffect(() => {
-    init();
-  }, [init]);
+    init()
+  }, [init])
 
-  if (!data) return null;
+  if (!data) return null
   const CardItem = data.map((starship: TStarship) => {
     const {
       name,
@@ -40,7 +40,7 @@ const StarshipsPage = () => {
       consumables,
       created,
       edited,
-    } = starship;
+    } = starship
     const info = [
       { title: 'Model', value: model },
       { title: 'Starship class', value: starship_class },
@@ -56,29 +56,31 @@ const StarshipsPage = () => {
       { title: 'Consumables', value: consumables },
       { title: 'Created', value: dateFormatting(created) },
       { title: 'Edited', value: dateFormatting(edited) },
-    ];
+    ]
     return (
       <Card key={name} title={name}>
         <CardListInfo data={info} />
       </Card>
-    );
-  });
+    )
+  })
   return (
     <Main>
       <WrapperButtons>
-       <NavLink to="/">
-        <GoBack />
-      </NavLink>
-      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
-          (page)=>{
+        <NavLink to="/">
+          <GoBack />
+        </NavLink>
+        <Paginator
+          current={context?.current || 1}
+          total={context?.count || 0}
+          onChange={(page) => {
             fetchStarships(page)
-          }
-        } />
+          }}
+        />
       </WrapperButtons>
       <WrapperStarship>{CardItem}</WrapperStarship>
       <Footer />
     </Main>
-  );
-};
+  )
+}
 
-export default observer(StarshipsPage);
+export default observer(StarshipsPage)

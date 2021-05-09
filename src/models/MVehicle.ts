@@ -1,9 +1,9 @@
-import { types } from 'mobx-state-tree';
+import { types } from 'mobx-state-tree'
 
 export const MVehicle = types.model({
   name: types.string,
   model: types.string,
-  vehicle_class : types.string,
+  vehicle_class: types.string,
   manufacturer: types.string,
   length: types.string,
   cost_in_credits: types.string,
@@ -17,4 +17,4 @@ export const MVehicle = types.model({
   url: types.string,
   created: types.string,
   edited: types.string,
-});
+})

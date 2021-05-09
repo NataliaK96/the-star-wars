@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
-import { Button } from 'antd';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
+import { Button } from 'antd'
 
 export const ButtonBase = styled(Button)`
   &&& {
@@ -20,8 +20,8 @@ export const ButtonBase = styled(Button)`
       padding-top: 4px;
     }
   }
-`;
+`
 
 export const OpenButton = styled(ButtonBase)`
   margin-left: auto;
-`;
+`

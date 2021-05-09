@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
-import { Pagination } from 'antd';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
+import { Pagination } from 'antd'
 
 export const PaginationStyled = styled(Pagination)`
   &&& {
@@ -23,4 +23,4 @@ export const PaginationStyled = styled(Pagination)`
       color: ${Colors.white};
     }
   }
-`;
+`

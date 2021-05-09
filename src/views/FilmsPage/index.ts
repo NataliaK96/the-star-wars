@@ -1,2 +1,2 @@
-import FilmsPage from './FilmsPage';
+import FilmsPage from './FilmsPage'
 export default FilmsPage

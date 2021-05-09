@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
 import backgroundSpecies from 'assets/images/species.jpg'
 
 export const Main = styled.div`
@@ -10,7 +10,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   background-repeat: no-repeat;
-`;
+`
 
 export const WrapperSpecies = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const WrapperSpecies = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 0 20%;
-`;
+`
 export const WrapperButtons = styled.div`
   display: flex;
   justify-content: space-between;
@@ -26,5 +26,4 @@ export const WrapperButtons = styled.div`
   margin: 20px 5% 0 5%;
   position: absolute;
   width: 90%;
-`;
-
+`

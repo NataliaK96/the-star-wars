@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
 
 export const Wrapper = styled.div`
   display: flex;
@@ -10,7 +10,7 @@ export const Wrapper = styled.div`
   &:last-child {
     border-bottom: none;
   }
-`;
+`
 
 export const Title = styled.div`
   display: flex;
@@ -18,8 +18,8 @@ export const Title = styled.div`
   color: ${Colors.yellow};
   font-weight: 800;
   font-size: 28px;
-`;
+`
 export const Info = styled.div`
   display: flex;
   flex-direction: column;
-`;
+`

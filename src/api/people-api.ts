@@ -1,7 +1,6 @@
-import {request} from './request';
+import { request } from './request'
 
-export const getPeople = (page: number = 1) => 
-request(`/api/people/?page=${page}`, {
+export const getPeople = (page: number = 1) =>
+  request(`/api/people/?page=${page}`, {
     method: 'GET',
-  });
-
+  })

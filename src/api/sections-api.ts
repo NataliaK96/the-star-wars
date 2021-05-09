@@ -1,7 +1,6 @@
-import {request} from './request';
+import { request } from './request'
 
-export const getSections = () => 
-request('/api/', {
+export const getSections = () =>
+  request('/api/', {
     method: 'GET',
-  });
-
+  })

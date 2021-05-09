@@ -1,24 +1,24 @@
-import React from 'react';
-import { DropdownStyled } from './Filter.styles';
-import { Menu } from 'antd';
-import { FilterOutlined } from '@ant-design/icons';
+import React from 'react'
+import { DropdownStyled } from './Filter.styles'
+import { Menu } from 'antd'
+import { FilterOutlined } from '@ant-design/icons'
 
-const { SubMenu } = Menu;
+const { SubMenu } = Menu
 
 type Props = {
-  climateVariants: string[];
-  terrainVariants: string[];
-  onFilterByClimate: (climate: string) => void;
-  onFilterByTerrain: (terrain: string) => void;
-  reset: ()=>void;
-};
+  climateVariants: string[]
+  terrainVariants: string[]
+  onFilterByClimate: (climate: string) => void
+  onFilterByTerrain: (terrain: string) => void
+  reset: () => void
+}
 
 export const Filter: React.FC<Props> = ({
   climateVariants,
   terrainVariants,
   onFilterByClimate,
   onFilterByTerrain,
-  reset
+  reset,
 }) => {
   const menu = (
     <Menu>
@@ -38,10 +38,10 @@ export const Filter: React.FC<Props> = ({
       </SubMenu>
       <Menu.Item onClick={reset}>Reset</Menu.Item>
     </Menu>
-  );
+  )
   return (
     <DropdownStyled overlay={menu}>
       <FilterOutlined />
     </DropdownStyled>
-  );
-};
+  )
+}

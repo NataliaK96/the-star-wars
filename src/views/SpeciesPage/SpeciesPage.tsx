@@ -1,28 +1,28 @@
-import React, { useCallback, useEffect } from 'react';
-import store from 'store';
-import { observer } from 'mobx-react';
-import { Main, WrapperButtons, WrapperSpecies } from './Species.styles';
-import { Footer } from 'components/Footer';
-import { Card } from 'components/Card';
-import { TSpecies } from 'types';
-import { CardListInfo } from 'components/CardListInfo';
-import { NavLink } from 'react-router-dom';
-import { GoBack } from 'components/Buttons';
-import { dateFormatting } from 'utils';
-import { Paginator } from 'components/Paginator';
+import React, { useCallback, useEffect } from 'react'
+import store from 'store'
+import { observer } from 'mobx-react'
+import { Main, WrapperButtons, WrapperSpecies } from './Species.styles'
+import { Footer } from 'components/Footer'
+import { Card } from 'components/Card'
+import { TSpecies } from 'types'
+import { CardListInfo } from 'components/CardListInfo'
+import { NavLink } from 'react-router-dom'
+import { GoBack } from 'components/Buttons'
+import { dateFormatting } from 'utils'
+import { Paginator } from 'components/Paginator'
 
 const SpeciesPage = () => {
-  const { species, fetchSpecies } = store;
-  const { data, context } = species;
+  const { species, fetchSpecies } = store
+  const { data, context } = species
 
   const init = useCallback(async () => {
-    await fetchSpecies(1);
-  }, [fetchSpecies]);
+    await fetchSpecies(1)
+  }, [fetchSpecies])
   useEffect(() => {
-    init();
-  }, [init]);
+    init()
+  }, [init])
 
-  if (!data) return null;
+  if (!data) return null
 
   const CardItem = data.map((species: TSpecies) => {
     const {
@@ -37,7 +37,7 @@ const SpeciesPage = () => {
       language,
       created,
       edited,
-    } = species;
+    } = species
     const info = [
       { title: 'Classification', value: classification },
       { title: 'Designation', value: designation },
@@ -49,29 +49,31 @@ const SpeciesPage = () => {
       { title: 'Language', value: language },
       { title: 'Created', value: dateFormatting(created) },
       { title: 'Edited', value: dateFormatting(edited) },
-    ];
+    ]
     return (
       <Card key={name} title={name}>
         <CardListInfo data={info} />
       </Card>
-    );
-  });
+    )
+  })
   return (
     <Main>
       <WrapperButtons>
-       <NavLink to="/">
-        <GoBack />
-      </NavLink>
-      <Paginator current={context?.current || 1} total={context?.count || 0} onChange={
-          (page)=>{
+        <NavLink to="/">
+          <GoBack />
+        </NavLink>
+        <Paginator
+          current={context?.current || 1}
+          total={context?.count || 0}
+          onChange={(page) => {
             fetchSpecies(page)
-          }
-        } />
+          }}
+        />
       </WrapperButtons>
       <WrapperSpecies>{CardItem}</WrapperSpecies>
       <Footer />
     </Main>
-  );
-};
+  )
+}
 
-export default observer(SpeciesPage);
+export default observer(SpeciesPage)

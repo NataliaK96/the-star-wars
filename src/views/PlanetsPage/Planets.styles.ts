@@ -1,6 +1,6 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
-import backgroundPlanets from 'assets/images/planets.jpg';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
+import backgroundPlanets from 'assets/images/planets.jpg'
 
 export const Main = styled.div`
   color: ${Colors.white};
@@ -10,7 +10,7 @@ export const Main = styled.div`
   display: flex;
   flex-direction: column;
   background-repeat: no-repeat;
-`;
+`
 
 export const WrapperPlanets = styled.div`
   display: flex;
@@ -18,7 +18,7 @@ export const WrapperPlanets = styled.div`
   justify-content: center;
   flex-direction: column;
   margin: 0 20%;
-`;
+`
 
 export const WrapperButtons = styled.div`
   display: flex;
@@ -27,9 +27,9 @@ export const WrapperButtons = styled.div`
   margin: 20px 5% 0 5%;
   position: absolute;
   width: 90%;
-`;
+`
 
 export const BackAndFilter = styled.div`
   display: flex;
   flex-direction: row;
-`;
+`

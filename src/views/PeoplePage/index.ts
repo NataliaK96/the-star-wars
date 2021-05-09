@@ -1,2 +1,2 @@
-import PeoplePage from './PeoplePage';
+import PeoplePage from './PeoplePage'
 export default PeoplePage

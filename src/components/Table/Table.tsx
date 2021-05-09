@@ -1,12 +1,12 @@
-import React from 'react';
-import { TTableData } from 'types';
-import { TableStyled, TableWrapper } from './Table.styles';
-import { Link } from 'react-router-dom';
-import { OpenButton } from 'components/Buttons';
+import React from 'react'
+import { TTableData } from 'types'
+import { TableStyled, TableWrapper } from './Table.styles'
+import { Link } from 'react-router-dom'
+import { OpenButton } from 'components/Buttons'
 
 type Props = {
-  data: TTableData[];
-};
+  data: TTableData[]
+}
 
 const columns = [
   {
@@ -41,12 +41,12 @@ const columns = [
       </Link>
     ),
   },
-];
+]
 
 export const Table: React.FC<Props> = ({ data }) => {
   return (
     <TableWrapper>
       <TableStyled dataSource={data} columns={columns} />
     </TableWrapper>
-  );
-};
+  )
+}

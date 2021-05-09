@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import { Colors } from 'constants/colors';
+import styled from 'styled-components'
+import { Colors } from 'constants/colors'
 import backgroundMain from 'assets/images/background.jpg'
 
 export const Main = styled.div`
@@ -10,4 +10,4 @@ export const Main = styled.div`
   background-image: url(${backgroundMain});
   background-color: ${Colors.black};
   background-size: cover;
-`;
+`

@@ -1,4 +1,4 @@
-import { types } from 'mobx-state-tree';
+import { types } from 'mobx-state-tree'
 
 export const MFilm = types.model({
   title: types.string,
@@ -12,7 +12,7 @@ export const MFilm = types.model({
   vehicles: types.array(types.string),
   characters: types.array(types.string),
   planets: types.array(types.string),
-  url: types.string ,
+  url: types.string,
   created: types.string,
-  edited: types.string ,
-});
+  edited: types.string,
+})

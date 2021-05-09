@@ -1,14 +1,14 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { Main, Wrapper } from './App.styles';
-import MainPage from 'views/MainPage/MainPage';
-import FilmsPage from 'views/FilmsPage';
-import PeoplePage from 'views/PeoplePage';
-import PlanetsPage from 'views/PlanetsPage';
-import SpeciesPage from 'views/SpeciesPage';
-import StarshipsPage from 'views/StarshipsPage';
-import VehiclesPage from 'views/VehiclesPage';
-import { Header } from 'components/Header';
+import React from 'react'
+import { Route } from 'react-router-dom'
+import { Main, Wrapper } from './App.styles'
+import MainPage from 'views/MainPage/MainPage'
+import FilmsPage from 'views/FilmsPage'
+import PeoplePage from 'views/PeoplePage'
+import PlanetsPage from 'views/PlanetsPage'
+import SpeciesPage from 'views/SpeciesPage'
+import StarshipsPage from 'views/StarshipsPage'
+import VehiclesPage from 'views/VehiclesPage'
+import { Header } from 'components/Header'
 
 function App() {
   return (
@@ -24,7 +24,7 @@ function App() {
         <Route path="/vehicles" render={() => <VehiclesPage />} />
       </Main>
     </Wrapper>
-  );
+  )
 }
 
-export default App;
+export default App
